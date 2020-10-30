@@ -1,0 +1,290 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>絕命角鬥場 判定計算機</title>
+        <style>
+            tbody, table {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .ansContainer {
+                height: 50%;
+                font-size: 35px;
+            }
+
+            .block1 {
+                width: 20%;
+                text-align: center;
+                padding-left:0px;
+                padding-right:0px;
+                
+            }            
+
+            .block2 {
+                width: 20%;
+                padding-left:0px;
+                padding-right: 0px;
+                text-align: center;
+                
+            }
+
+            .blcok3 {
+                margin: 0%;
+                width: 20%;
+                
+            }
+
+            .block4 {
+                margin: 0%;
+                width: 35%;
+               
+            }
+
+            .dataInput , .functionUI{
+                font-size:30px;
+            }
+
+          
+            .do {
+                font-size:25px;
+            }
+
+            h2 {
+                font-size:30px;
+            }
+
+            .statusLabel {
+                font-size: 25px;
+            }
+
+            .selector {
+                font-size: 25px;
+            }
+
+            label {
+                font-size: "Microsoft JhengHei";
+            }
+
+            html, body {
+                width:2000px;
+                height: 1500px;
+                padding-left:0px;
+                padding-right:0px;
+                padding-top:0px;
+                padding-bottom:0px;
+                margin:0px;
+            }
+        </style>
+    </head>
+    <body>
+        <table class="inputTable">
+            <tbody>
+                <tr>
+                    <td class="block1">
+                        <label style="font-size:35px">
+                            <input type="radio" name="attacker" value="player1" style="font-size:35px">玩家 1
+                        </label>
+
+                        <form id="player1Value">
+                            <label class="statusLabel">ATK（力量）</label><br><input class="dataInput" type="text" id="atk" name="atk" size="5"><br>
+                            <label class="statusLabel">DEX（敏捷）</label><br><input class="dataInput" type="text" id="dex" name="dex" size="5"><br>
+                            <label class="statusLabel">DEF（防禦）</label><br><input class="dataInput" type="text" id="def" name="def" size="5"><br>
+                            <label class="statusLabel">LUCK（幸運）</label><br><input class="dataInput" type="text" id="luck" name="luck" size="5"><br>
+                            <label class="statusLabel">INT（智力）</label><br><input class="dataInput" type="text" id="int" name="int" size="5"><br>
+                            <label class="statusLabel">STR（體能） </label><br><input class="dataInput" type="text" id="str" name="str" size="5"><br>
+                            <label class="statusLabel">BE（戰鬥經驗）</label><br><input class="dataInput" type="text" id="be" name="be" size="5"><br>
+                        </form>
+                    </td>
+
+                    <td class="block2">
+                        <label style="font-size:35px"><input type="radio" name="attacker" value="player2" style="font-size:35px">玩家 2</label>
+
+                        <form id="player2Value">
+                            <label class="statusLabel">ATK（力量）</label><br><input class="dataInput" type="text" id="atk" name="atk" size="5"><br>
+                            <label class="statusLabel">DEX（敏捷）</label><br><input class="dataInput" type="text" id="dex" name="dex" size="5"><br>
+                            <label class="statusLabel">DEF（防禦）</label><br><input class="dataInput" type="text" id="def" name="def" size="5"><br>
+                            <label class="statusLabel">LUCK（幸運）</label><br><input class="dataInput" type="text" id="luck" name="luck" size="5"><br>
+                            <label class="statusLabel">INT（智力）</label><br><input class="dataInput" type="text" id="int" name="int" size="5"><br>
+                            <label class="statusLabel">STR（體能） </label><br><input class="dataInput" type="text" id="str" name="str" size="5"><br>
+                            <label class="statusLabel">BE（戰鬥經驗）</label><br><input class="dataInput" type="text" id="be" name="be" size="5"><br>
+                        </form>
+                    </td>
+
+                    <td class="block3" style="text-align: center;">
+                        <form id="chooseFunction">
+                            <!--<label class="functionUI"><input type="radio" name="funcForm" value="atkFunc">攻擊</label><br>
+                            <label class="functionUI"><input type="radio" name="funcForm" value="judgeFunc">判定</label><br>
+                            -->
+
+                            
+                            <select name="eventSelector" class="selector">
+                                <optgroup label="技能公式">
+                                    <option value="chongZhuang">衝撞</option>
+                                    <option value="manLiDaJi">蠻力打擊</option>
+                                    <option value="qiangLiZhongJi">強力重擊</option>
+                                    <option value="zhenHanZaJi">震撼砸擊</option>
+                                    <option value="ciTanXingGongJi">刺探性攻擊</option>
+                                    <option value="huLuanZhanJi">胡亂斬擊</option>
+                                    <option value="huLuanCiJi">胡亂刺擊</option>
+                                    <option value="hengSao">橫掃</option>
+                                    <option value="jaiDongZuo">假動作</option>
+                                </optgroup>
+                                <optgroup label="事件判定公式">
+
+                                </optgroup>
+                            </select>
+                        </form>
+                    </td>
+                    <td class="block4">
+                        <label class="statusLabel">百面骰數值：</label><br><input class="dataInput" type="text" id="discValue"><br>
+                        <label class="statusLabel">結果：</label><br>
+                        
+
+                        <div id="ans" class="ansContainer">
+                            Test
+                        </div>
+        
+                    </td>
+                </tr>
+            </tbody>
+        </table>    
+        <!--
+        <input type="button" class="abTest" id="abTest" value="Test">
+        <input type="button" class="" id="funcTest" value="testFunc">
+    -->
+        <input type="button" class="dataInput" id="do" value="計算">
+        
+        
+
+        <script>
+            var player1Value = new FormData(document.querySelector("#player1Value"));
+            var player2Value = new FormData(document.querySelector("#player2Value"));
+
+            var ansContainer = document.getElementById("ans");
+
+            var playerRadio = document.getElementsByName("attacker");
+            var funcRadio = document.getElementsByName("funcForm");
+
+            var attakcer;
+            var defenser;
+
+/* 
+           var funcBtn = document.getElementById("funcTest");
+            funcBtn.onclick = function() {
+                let radio = document.getElementsByName("funcForm");
+                
+                for(let r of radio) {
+                    
+                    
+                    console.log(r.value);
+                }
+            }
+
+            var testBtn = document.getElementById("abTest");
+            testBtn.onclick = function() {
+                valueForm = updateValueForm();
+
+               for(let temp of valueForm) {
+                   console.log(temp[0] + "：" + temp[1]);
+               }
+            }
+*/
+
+            console.log(playerRadio.entries);
+
+            var start = document.getElementById("do");
+            start.setAttribute("onclick", "main()");
+
+            function main() {
+                cleanContainer();
+                updateValueForm();
+                decisionAttacker();
+
+
+
+                let functionType = getFunction();
+                checkFunctionType(functionType);
+            }
+
+            function getFunction() {
+                let type = "";
+                
+                for(let radio of funcRadio) {
+                    
+                    if(radio.checked) {
+                        type = radio.value;
+                        break;
+                    }
+                }
+
+                return type;
+            }
+
+            function checkFunctionType(functionType) {
+                
+
+                if(functionType == "atkFunc") {
+                    attackCalculator();
+                } else if(functionType == "judgeFunc") {
+
+                }
+            }
+
+            function attackCalculator() {
+                //爆擊效果（ atk * LUCK / 100 + ATK - 敵人DEF）
+                console.log("Attacker.get(atk)：" + attacker.get("atk"));
+                console.log("Defenser.get(def)：" + defenser.get("def"));
+
+
+                let realHurt = (attacker.get("atk") * (attacker.get("luck") / 100)) + (attacker.get("atk") - defenser.get("def"));
+                console.log(realHurt);
+                ansContainer.appendChild(document.createTextNode(realHurt));
+            }
+
+            function judgeCalculator() {
+
+            }
+
+
+            function decisionAttacker() {
+                attacker = new Character();
+                defenser = new Character();
+                let i = 0;
+            
+                for(let temp of playerRadio) {
+                    console.log(temp.value + "：" + temp.checked);
+                    console.log(i++);
+
+                    if(temp.checked) {
+                        attackerValue = new FormData(document.querySelector("#" + temp.value + "Value"));
+                        
+                        for(let stat of attackerValue) {
+                            attacker.set(stat);
+                        }
+
+                    } else {
+                        defenserValue = new FormData(document.querySelector("#" + temp.value + "Value"));
+
+                        for(let stat of defenserValue) {
+                            defenser.set(stat);
+                        }
+                    }
+                }
+            }
+
+            function updateValueForm() {
+                player1Value = new FormData(document.querySelector("#player1Value"));
+                player2Value = new FormData(document.querySelector("#player2Value"));
+                
+            }
+
+            function cleanContainer() {
+                ansContainer.innerText = "";
+            }
+
+        </script>
+        <script src="static/status.js"></script>
+        <script src="static/function.js"></script>
+    </body>
+</html>
