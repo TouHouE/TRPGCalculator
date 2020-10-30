@@ -11,6 +11,7 @@
             .ansContainer {
                 height: 50%;
                 font-size: 35px;
+                border-style: solid;
             }
 
             .block1 {
@@ -54,12 +55,26 @@
                 font-size:30px;
             }
 
-            .statusLabel {
+            .statusLabel, .skillLabel {
                 font-size: 25px;
             }
 
             .selector {
                 font-size: 25px;
+                width:180px;
+            }
+
+            .tooLongOption {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width:180px;
+            }
+
+            .attacker {
+                width:20px;
+                height: 20px;
+                vertical-align: center;
+                margin-top:0 px;
             }
 
             label {
@@ -83,7 +98,7 @@
                 <tr>
                     <td class="block1">
                         <label style="font-size:35px">
-                            <input type="radio" name="attacker" value="player1" style="font-size:35px">玩家 1
+                            <input type="radio" name="attacker" value="player1" style="font-size:35px" class="attacker">玩家 1
                         </label>
 
                         <form id="player1Value">
@@ -98,7 +113,9 @@
                     </td>
 
                     <td class="block2">
-                        <label style="font-size:35px"><input type="radio" name="attacker" value="player2" style="font-size:35px">玩家 2</label>
+                        <label style="font-size:35px">
+                            <input type="radio" name="attacker" value="player2" style="font-size:35px" class="attacker">玩家 2
+                        </label>
 
                         <form id="player2Value">
                             <label class="statusLabel">ATK（力量）</label><br><input class="dataInput" type="text" id="atk" name="atk" size="5"><br>
@@ -117,9 +134,9 @@
                             <label class="functionUI"><input type="radio" name="funcForm" value="judgeFunc">判定</label><br>
                             -->
 
-                            
-                            <select name="eventSelector" class="selector">
-                                <optgroup label="技能公式">
+                            <label class="skillLabel">攻擊系列</label><br>
+                            <select name="atkSkillSelector" class="selector">
+                                    <option value="not">無</option>
                                     <option value="chongZhuang">衝撞</option>
                                     <option value="manLiDaJi">蠻力打擊</option>
                                     <option value="qiangLiZhongJi">強力重擊</option>
@@ -129,10 +146,99 @@
                                     <option value="huLuanCiJi">胡亂刺擊</option>
                                     <option value="hengSao">橫掃</option>
                                     <option value="jaiDongZuo">假動作</option>
-                                </optgroup>
-                                <optgroup label="事件判定公式">
+                                    <option value="daoFengJiHe">刀鋒幾何</option>
+                                    <option value="liXueYuanLi">力學原理</option>
+                                    <option value="guDingJueSha">固定絕殺</option>
+                                    <option value="luoJiao">裸絞</option>
+                                    <!----><option class="tooLongOption" value="duRen">我的這把刀是塗滿的毒藥的毒刃</option>
+                                    <option value="deErBaDao">當我拔出第二把刀時</option>
+                                    <option value="zhouJi">肘擊</option>
 
-                                </optgroup>
+                            </select><br>
+
+                            <label class="skillLabel">防禦系列</label><br>
+                            <select name="defSkillSelector" class="selector">
+                                <option value="not">無</option>
+                                <option value="geDang">格檔</option>
+                                <option value="zhaoJia">招架</option>
+                                <option value="xuZhangShengShi">虛張聲勢</option>
+                                <option value="dunShenJiHe">盾身幾何</option>
+                                <option value="newtonLaw1">牛頓第一運動定律</option>
+
+                                <option value="newtonLaw3">牛頓第三運動定律</option>
+                                <option value="fuYuWanKang">負隅頑抗</option>
+                                <option value="duoRen">奪刃</option>
+                                <option value="zhanShuXingShanBi">戰術性閃避</option>
+                            </select><br>
+
+                            <label class="skillLabel">先手系列</label><br>
+                            <select name="defSkillSelector" class="selector">
+                                <option value="not">無</option>
+                                <option value="jinShenNiuDa">近身扭打</option>
+                                <option value="sheShenYiJi">捨身一擊</option>
+                                <option value="juanJian">捲劍</option>
+                                <option value="qiangLiTuJi">強力突擊</option>
+                                
+                            </select><br>
+
+                            <label class="skillLabel">道具系列</label><br>
+                            <select name="itemSkillSelector" class="selector">
+                                <option value="not">無</option>
+                                <option value="touQie">偷竊</option>
+                                <option value="qiangDuo">搶奪</option>"
+                                <option value="guaiPian">拐騙</option>
+                                <option value="xunBao">尋寶</option>
+                                <option value="guanZhongXiZhiYuan">觀眾席支援</option>
+                                <option value="daSaBi">大撒幣</option>
+                            </select><br>
+
+                            <label class="skillLabel">BUFF系列</label><br>
+                            <select name="defSkillSelector" class="selector">
+                                <option value="not">無</option>
+                                <option value="wuXingZhiXiang">東洋劍法。五行之相</option>
+                                <option value="cunQiangCunChang">東洋槍術。寸強寸長</option>
+                                <option value="cunDuanCunXian">東洋殺招。寸短寸險</option>
+                                <option value="liLunYuShiJian">理論與實踐</option>
+                                <option value="zhenZhiZhuoJian">真知灼見</option>
+                                <option value="liXueJiSuan">力學計算</option>
+                                <option value="tangJiKeDeZhiHun">唐吉軻德之魂</option>
+                                <option value="xueXiFuSiDeZheMo">薛西弗斯的折磨</option>
+                                <option value="tianZhuZiZhe">天助自助者</option>
+                                <option value="taoPaoKeChiDanYouYong">逃跑可恥但有用</option>
+
+                            </select><br>
+
+                            <label class="skillLabel">DEBUFF系列</label><br>
+                            <select name="debuffSkillSelector" class="selector">
+                                <option value="not">無</option>
+                                <option value="cuiMianShu">催眠術</option>
+                                <option value="wanHuoShangShen">玩火上身</option>
+                                <option value="zongHuo">縱火</option>
+                                <option value="crazyHug">瘋狂擁抱</option>
+                                <option value="explosion">引爆</option>
+                                <option value="zouHuoRuMo">走火入魔</option>
+                            </select><br>
+
+                            <label class="skillLabel">角鬥士經驗系列</label><br>
+                            <select name="defSkillSelector" class="selector">
+                                <option value="not">無</option>
+                                <option value="tiaoXin">挑釁</option>
+                                <option value="qingQiXingJing">傾奇行徑</option>
+                                <option value="showPower">力量展示</option>
+                            </select><br>
+                            <label class="skillLabel">機制系列</label><br>
+                            <select name="defSkillSelector" class="selector">
+                                <option value="not">無</option>
+                                <option value="dustRunway">力量展示</option>
+                                <option value="zhanShuYuPan">戰術預判</option>
+                                <option value="zhanDouBenNeng">戰鬥本能</option>
+                                <option value="daYuRuoZhi">大愚若智</option>
+                                <option value="zhShuaZheDeZhenSui">雜耍者的真隨</option>
+                                <option value="duTuDeZhiNian">賭徒的執念</option>"
+                                <option value="tianZhuWoYe">天助我也</option>
+                                <option value="newtonLaw2">牛頓第二運動定律</option>
+                                <option value="xinYan">心眼</option>
+
                             </select>
                         </form>
                     </td>
