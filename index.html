@@ -135,7 +135,7 @@
                             -->
 
                             <label class="skillLabel">攻擊系列</label><br>
-                            <select name="atkSkillSelector" class="selector">
+                            <select name="atkSkillSelector" class="selector" id="atkSkill">
                                     <option value="not">無</option>
                                     <option value="chongZhuang">衝撞</option>
                                     <option value="manLiDaJi">蠻力打擊</option>
@@ -157,7 +157,7 @@
                             </select><br>
 
                             <label class="skillLabel">防禦系列</label><br>
-                            <select name="defSkillSelector" class="selector">
+                            <select name="defSkillSelector" class="selector" id="defSkill">
                                 <option value="not">無</option>
                                 <option value="geDang">格檔</option>
                                 <option value="zhaoJia">招架</option>
@@ -172,7 +172,7 @@
                             </select><br>
 
                             <label class="skillLabel">先手系列</label><br>
-                            <select name="defSkillSelector" class="selector">
+                            <select name="dexSkillSelector" class="selector" id="dexSkill">
                                 <option value="not">無</option>
                                 <option value="jinShenNiuDa">近身扭打</option>
                                 <option value="sheShenYiJi">捨身一擊</option>
@@ -182,7 +182,7 @@
                             </select><br>
 
                             <label class="skillLabel">道具系列</label><br>
-                            <select name="itemSkillSelector" class="selector">
+                            <select name="itemSkillSelector" class="selector" id="itemSkill">
                                 <option value="not">無</option>
                                 <option value="touQie">偷竊</option>
                                 <option value="qiangDuo">搶奪</option>"
@@ -193,7 +193,7 @@
                             </select><br>
 
                             <label class="skillLabel">BUFF系列</label><br>
-                            <select name="defSkillSelector" class="selector">
+                            <select name="buffSkillSelector" class="selector" id="buffSkill">
                                 <option value="not">無</option>
                                 <option value="wuXingZhiXiang">東洋劍法。五行之相</option>
                                 <option value="cunQiangCunChang">東洋槍術。寸強寸長</option>
@@ -209,7 +209,7 @@
                             </select><br>
 
                             <label class="skillLabel">DEBUFF系列</label><br>
-                            <select name="debuffSkillSelector" class="selector">
+                            <select name="debuffSkillSelector" class="selector" id="debuffSkill">
                                 <option value="not">無</option>
                                 <option value="cuiMianShu">催眠術</option>
                                 <option value="wanHuoShangShen">玩火上身</option>
@@ -220,14 +220,14 @@
                             </select><br>
 
                             <label class="skillLabel">角鬥士經驗系列</label><br>
-                            <select name="defSkillSelector" class="selector">
+                            <select name="gpSkillSelector" class="selector" id="gpSkill">
                                 <option value="not">無</option>
                                 <option value="tiaoXin">挑釁</option>
                                 <option value="qingQiXingJing">傾奇行徑</option>
                                 <option value="showPower">力量展示</option>
                             </select><br>
                             <label class="skillLabel">機制系列</label><br>
-                            <select name="defSkillSelector" class="selector">
+                            <select name="ruleSkillSelector" class="selector" id="ruleSkill">
                                 <option value="not">無</option>
                                 <option value="dustRunway">力量展示</option>
                                 <option value="zhanShuYuPan">戰術預判</option>
@@ -272,10 +272,18 @@
             var playerRadio = document.getElementsByName("attacker");
             var funcRadio = document.getElementsByName("funcForm");
 
+            var atkSkill = document.getElementById("atkSkill");
+            var defSkill = document.getElementById("defSkill");
+            var dexSkill = document.getElementById("dexSkill");
+            var gpSkill = document.getElementById("gpSkill");
+            var buffSkill = document.getElementById("buffSkill")
+            var debuffSkill = document.getElementById("debuffSkill");
+            var ruleSkill = document.getElementById("ruleSkill");
+
             var attakcer;
             var defenser;
 
-/* 
+/*
            var funcBtn = document.getElementById("funcTest");
             funcBtn.onclick = function() {
                 let radio = document.getElementsByName("funcForm");
@@ -312,7 +320,7 @@
                 let functionType = getFunction();
                 checkFunctionType(functionType);
             }
-
+/*
             function getFunction() {
                 let type = "";
                 
@@ -325,6 +333,28 @@
                 }
 
                 return type;
+            }
+*/
+
+            function getFunction() {
+
+                if(atkSkill.options[atkSkill.selectedIndex].text != "無") {
+
+                } else if(defSkill.options[defSkill.selectedIndex].text != "無") {
+
+                } else if(dexSkill.options[dexSkill.selectedIndex].text != "無") {
+
+                } else if(gpSkill.options[gpSkill.selectedIndex].text != "無") {
+
+                } else if(buffSkill.options[buffSkill.selectedIndex].text != "無") {
+
+                } else if(debuffSkill.options[debuffSkill.selectedIndex].text != "無") {
+
+                } else if(ruleSkill.options[ruleSkill.selectedIndex].text != "無") {
+
+                } else {
+                    return "Warning!!!!";
+                }
             }
 
             function checkFunctionType(functionType) {
