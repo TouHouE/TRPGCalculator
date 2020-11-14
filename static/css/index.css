@@ -1,0 +1,87 @@
+tbody, table {
+    margin: 0px;
+    padding: 0px;
+}
+
+.ansContainer {
+    height: 50%;
+    font-size: 35px;
+    border-style: solid;
+}
+
+.block1 {
+    width: 20%;
+    text-align: center;
+    padding-left:0px;
+    padding-right:0px;
+    
+}            
+
+.block2 {
+    width: 20%;
+    padding-left:0px;
+    padding-right: 0px;
+    text-align: center;
+    
+}
+
+.blcok3 {
+    margin: 0%;
+    width: 20%;
+    
+}
+
+.block4 {
+    margin: 0%;
+    width: 35%;
+   
+}
+
+.dataInput , .functionUI{
+    font-size:30px;
+}
+
+
+.do {
+    font-size:25px;
+}
+
+h2 {
+    font-size:30px;
+}
+
+.statusLabel, .skillLabel {
+    font-size: 25px;
+}
+
+.selector {
+    font-size: 25px;
+    width:180px;
+}
+
+.tooLongOption {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:180px;
+}
+
+.attacker {
+    width:20px;
+    height: 20px;
+    vertical-align: center;
+    margin-top:0 px;
+}
+
+label {
+    font-size: "Microsoft JhengHei";
+}
+
+html, body {
+    width:2000px;
+    height: 1500px;
+    padding-left:0px;
+    padding-right:0px;
+    padding-top:0px;
+    padding-bottom:0px;
+    margin:0px;
+}

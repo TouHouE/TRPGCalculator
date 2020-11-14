@@ -1,0 +1,482 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>絕命角鬥場 判定計算機</title>
+        <link rel="stylesheet" type="text/css" href="static/css/index.css">
+      <!--  <style>
+            tbody, table {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .ansContainer {
+                height: 50%;
+                font-size: 35px;
+                border-style: solid;
+            }
+
+            .block1 {
+                width: 20%;
+                text-align: center;
+                padding-left:0px;
+                padding-right:0px;
+                
+            }            
+
+            .block2 {
+                width: 20%;
+                padding-left:0px;
+                padding-right: 0px;
+                text-align: center;
+                
+            }
+
+            .blcok3 {
+                margin: 0%;
+                width: 20%;
+                
+            }
+
+            .block4 {
+                margin: 0%;
+                width: 35%;
+               
+            }
+
+            .dataInput , .functionUI{
+                font-size:30px;
+            }
+
+          
+            .do {
+                font-size:25px;
+            }
+
+            h2 {
+                font-size:30px;
+            }
+
+            .statusLabel, .skillLabel {
+                font-size: 25px;
+            }
+
+            .selector {
+                font-size: 25px;
+                width:180px;
+            }
+
+            .tooLongOption {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                width:180px;
+            }
+
+            .attacker {
+                width:20px;
+                height: 20px;
+                vertical-align: center;
+                margin-top:0 px;
+            }
+
+            label {
+                font-size: "Microsoft JhengHei";
+            }
+
+            html, body {
+                width:2000px;
+                height: 1500px;
+                padding-left:0px;
+                padding-right:0px;
+                padding-top:0px;
+                padding-bottom:0px;
+                margin:0px;
+            }
+        </style>-->
+    </head>
+    <body>
+        <table class="inputTable">
+            <tbody>
+                <tr>
+                    <td class="block1">
+                        <label style="font-size:35px">
+                            <input type="radio" name="attacker" value="player1" style="font-size:35px" class="attacker">玩家 1
+                        </label>
+
+                        <form id="player1Value">
+                            <label class="statusLabel">ATK（力量）</label><br><input class="dataInput" type="text" id="atk" name="atk" size="5"><br>
+                            <label class="statusLabel">DEX（敏捷）</label><br><input class="dataInput" type="text" id="dex" name="dex" size="5"><br>
+                            <label class="statusLabel">DEF（防禦）</label><br><input class="dataInput" type="text" id="def" name="def" size="5"><br>
+                            <label class="statusLabel">LUCK（幸運）</label><br><input class="dataInput" type="text" id="luck" name="luck" size="5"><br>
+                            <label class="statusLabel">INT（智力）</label><br><input class="dataInput" type="text" id="int" name="int" size="5"><br>
+                            <label class="statusLabel">STR（體能） </label><br><input class="dataInput" type="text" id="str" name="str" size="5"><br>
+                            <label class="statusLabel">BE（戰鬥經驗）</label><br><input class="dataInput" type="text" id="be" name="be" size="5"><br>
+                        </form>
+                    </td>
+
+                    <td class="block2">
+                        <label style="font-size:35px">
+                            <input type="radio" name="attacker" value="player2" style="font-size:35px" class="attacker">玩家 2
+                        </label>
+
+                        <form id="player2Value">
+                            <label class="statusLabel">ATK（力量）</label><br><input class="dataInput" type="text" id="atk" name="atk" size="5"><br>
+                            <label class="statusLabel">DEX（敏捷）</label><br><input class="dataInput" type="text" id="dex" name="dex" size="5"><br>
+                            <label class="statusLabel">DEF（防禦）</label><br><input class="dataInput" type="text" id="def" name="def" size="5"><br>
+                            <label class="statusLabel">LUCK（幸運）</label><br><input class="dataInput" type="text" id="luck" name="luck" size="5"><br>
+                            <label class="statusLabel">INT（智力）</label><br><input class="dataInput" type="text" id="int" name="int" size="5"><br>
+                            <label class="statusLabel">STR（體能） </label><br><input class="dataInput" type="text" id="str" name="str" size="5"><br>
+                            <label class="statusLabel">BE（戰鬥經驗）</label><br><input class="dataInput" type="text" id="be" name="be" size="5"><br>
+                        </form>
+                    </td>
+
+                    <td class="block3" style="text-align: center;">
+                        <form id="chooseFunction">
+                            <!--<label class="functionUI"><input type="radio" name="funcForm" value="atkFunc">攻擊</label><br>
+                            <label class="functionUI"><input type="radio" name="funcForm" value="judgeFunc">判定</label><br>
+                            -->
+
+                            <label class="skillLabel">攻擊系列</label><br>
+                            <select name="atkSkillSelector" class="selector" id="atkSkill">
+                                    <option value="not">無</option>
+                                    <option value="normalAtk">普通攻擊</option>
+                                    <option value="chongZhuang">衝撞</option>
+                                    <option value="manLiDaJi">蠻力打擊</option>
+                                    <option value="qiangLiZhongJi">強力重擊</option>
+                                    <option value="zhenHanZaJi">震撼砸擊</option>
+                                    <option value="ciTanXingGongJi">刺探性攻擊</option>
+                                    <option value="huLuanZhanJi">胡亂斬擊</option>
+                                    <option value="huLuanCiJi">胡亂刺擊</option>
+                                    <option value="hengSao">橫掃</option>
+                                    <option value="jaiDongZuo">假動作</option>
+                                    <option value="daoFengJiHe">刀鋒幾何</option>
+                                    <option value="liXueYuanLi">力學原理</option>
+                                    <option value="guDingJueSha">固定絕殺</option>
+                                    <option value="luoJiao">裸絞</option>
+                                    <option class="tooLongOption" value="duRen">我的這把刀是塗滿的毒藥的毒刃</option>
+                                    <option value="deErBaDao">當我拔出第二把刀時</option>
+                                    <option value="zhouJi">肘擊</option>
+
+                            </select><br>
+
+                            <label class="skillLabel">防禦系列</label><br>
+                            <select name="defSkillSelector" class="selector" id="defSkill">
+                                <option value="not">無</option>
+                                <option value="geDang">格檔</option>
+                                <option value="zhaoJia">招架</option>
+                                <option value="xuZhangShengShi">虛張聲勢</option>
+                                <option value="dunShenJiHe">盾身幾何</option>
+                                <option value="newtonLaw1">牛頓第一運動定律</option>
+
+                                <option value="newtonLaw3">牛頓第三運動定律</option>
+                                <option value="fuYuWanKang">負隅頑抗</option>
+                                <option value="duoRen">奪刃</option>
+                                <option value="zhanShuXingShanBi">戰術性閃避</option>
+                            </select><br>
+
+                            <label class="skillLabel">先手系列</label><br>
+                            <select name="dexSkillSelector" class="selector" id="dexSkill">
+                                <option value="not">無</option>
+                                <option value="jinShenNiuDa">近身扭打</option>
+                                <option value="sheShenYiJi">捨身一擊</option>
+                                <option value="juanJian">捲劍</option>
+                                <option value="qiangLiTuJi">強力突擊</option>
+                                
+                            </select><br>
+
+                            <label class="skillLabel">道具系列</label><br>
+                            <select name="itemSkillSelector" class="selector" id="itemSkill">
+                                <option value="not">無</option>
+                                <option value="touQie">偷竊</option>
+                                <option value="qiangDuo">搶奪</option>"
+                                <option value="guaiPian">拐騙</option>
+                                <option value="xunBao">尋寶</option>
+                                <option value="guanZhongXiZhiYuan">觀眾席支援</option>
+                                <option value="daSaBi">大撒幣</option>
+                            </select><br>
+
+                            <label class="skillLabel">BUFF系列</label><br>
+                            <select name="buffSkillSelector" class="selector" id="buffSkill">
+                                <option value="not">無</option>
+                                <option value="wuXingZhiXiang">東洋劍法。五行之相</option>
+                                <option value="cunQiangCunChang">東洋槍術。寸強寸長</option>
+                                <option value="cunDuanCunXian">東洋殺招。寸短寸險</option>
+                                <option value="liLunYuShiJian">理論與實踐</option>
+                                <option value="zhenZhiZhuoJian">真知灼見</option>
+                                <option value="liXueJiSuan">力學計算</option>
+                                <option value="tangJiKeDeZhiHun">唐吉軻德之魂</option>
+                                <option value="xueXiFuSiDeZheMo">薛西弗斯的折磨</option>
+                                <option value="tianZhuZiZhe">天助自助者</option>
+                                <option value="taoPaoKeChiDanYouYong">逃跑可恥但有用</option>
+
+                            </select><br>
+
+                            <label class="skillLabel">DEBUFF系列</label><br>
+                            <select name="debuffSkillSelector" class="selector" id="debuffSkill">
+                                <option value="not">無</option>
+                                <option value="cuiMianShu">催眠術</option>
+                                <option value="wanHuoShangShen">玩火上身</option>
+                                <option value="zongHuo">縱火</option>
+                                <option value="crazyHug">瘋狂擁抱</option>
+                                <option value="explosion">引爆</option>
+                                <option value="zouHuoRuMo">走火入魔</option>
+                            </select><br>
+
+                            <label class="skillLabel">角鬥士經驗系列</label><br>
+                            <select name="gpSkillSelector" class="selector" id="gpSkill">
+                                <option value="not">無</option>
+                                <option value="tiaoXin">挑釁</option>
+                                <option value="qingQiXingJing">傾奇行徑</option>
+                                <option value="showPower">力量展示</option>
+                            </select><br>
+                            <label class="skillLabel">機制系列</label><br>
+                            <select name="ruleSkillSelector" class="selector" id="ruleSkill">
+                                <option value="not">無</option>
+                                <option value="dustRunway">力量展示</option>
+                                <option value="zhanShuYuPan">戰術預判</option>
+                                <option value="zhanDouBenNeng">戰鬥本能</option>
+                                <option value="daYuRuoZhi">大愚若智</option>
+                                <option value="zhShuaZheDeZhenSui">雜耍者的真隨</option>
+                                <option value="duTuDeZhiNian">賭徒的執念</option>"
+                                <option value="tianZhuWoYe">天助我也</option>
+                                <option value="newtonLaw2">牛頓第二運動定律</option>
+                                <option value="xinYan">心眼</option>
+
+                            </select>
+                        </form>
+                    </td>
+                    <td class="block4">
+                        <label class="statusLabel">百面骰數值：</label><br><input class="dataInput" type="text" id="discValue"><br>
+                        <label class="statusLabel">結果：</label><br>
+                        
+
+                        <div id="ans" class="ansContainer">
+                            Test
+                        </div>
+        
+                    </td>
+                </tr>
+            </tbody>
+        </table>    
+        <!--
+        <input type="button" class="abTest" id="abTest" value="Test">
+        <input type="button" class="" id="funcTest" value="testFunc">
+    -->
+        <input type="button" class="dataInput" id="do" value="計算">
+        
+        
+
+        <script>
+            var player1Value = new FormData(document.querySelector("#player1Value"));
+            var player2Value = new FormData(document.querySelector("#player2Value"));
+
+            var ansContainer = document.getElementById("ans");
+
+            var playerRadio = document.getElementsByName("attacker");
+            var funcRadio = document.getElementsByName("funcForm");
+
+            var atkSkill = document.getElementById("atkSkill");
+            var defSkill = document.getElementById("defSkill");
+            var dexSkill = document.getElementById("dexSkill");
+            var gpSkill = document.getElementById("gpSkill");
+            var buffSkill = document.getElementById("buffSkill")
+            var debuffSkill = document.getElementById("debuffSkill");
+            var ruleSkill = document.getElementById("ruleSkill");
+
+            var attakcer;
+            var defenser;
+
+/*
+           var funcBtn = document.getElementById("funcTest");
+            funcBtn.onclick = function() {
+                let radio = document.getElementsByName("funcForm");
+                
+                for(let r of radio) {
+                    
+                    
+                    console.log(r.value);
+                }
+            }
+
+            var testBtn = document.getElementById("abTest");
+            testBtn.onclick = function() {
+                valueForm = updateValueForm();
+
+               for(let temp of valueForm) {
+                   console.log(temp[0] + "：" + temp[1]);
+               }
+            }
+*/
+
+            //console.log(playerRadio.entries);
+
+            var start = document.getElementById("do");
+            start.setAttribute("onclick", "main()");
+
+            function main() {
+                cleanContainer();
+                updateValueForm();
+                decisionAttacker();
+
+
+
+                let funcDetail = getFunction();
+                checkFunctionType(funcDetail);
+            }
+/*
+            function getFunction() {
+                let type = "";
+                
+                for(let radio of funcRadio) {
+                    
+                    if(radio.checked) {
+                        type = radio.value;
+                        break;
+                    }
+                }
+
+                return type;
+            }
+*/
+
+
+
+            function getFunction() {
+
+                var funcSeriousAndSkill = {};                
+
+                if(atkSkill.options[atkSkill.selectedIndex].value != "not") {
+
+                    funcSeriousAndSkill["skillType"] = "atkSkill";
+                    funcSeriousAndSkill["skill"] = atkSkill.options[atkSkill.selectedIndex].value;
+
+                    return funcSeriousAndSkill;
+                } else if(defSkill.options[defSkill.selectedIndex].value != "not") {
+                    
+                    funcSeriousAndSkill["skillType"] = "atkSkill";
+                    funcSeriousAndSkill["skill"] = atkSkill.options[atkSkill.selectedIndex].value;
+
+                    return funcSeriousAndSkill;
+                } else if(dexSkill.options[dexSkill.selectedIndex].value != "not") {
+
+                    funcSeriousAndSkill["skillType"] = "atkSkill";
+                    funcSeriousAndSkill["skill"] = atkSkill.options[atkSkill.selectedIndex].value;
+
+                    return funcSeriousAndSkill;
+                } else if(gpSkill.options[gpSkill.selectedIndex].value != "not") {
+
+                    funcSeriousAndSkill["skillType"] = "atkSkill";
+                    funcSeriousAndSkill["skill"] = atkSkill.options[atkSkill.selectedIndex].value;
+
+                    return funcSeriousAndSkill;
+                } else if(buffSkill.options[buffSkill.selectedIndex].value != "not") {
+
+                    funcSeriousAndSkill["skillType"] = "atkSkill";
+                    funcSeriousAndSkill["skill"] = atkSkill.options[atkSkill.selectedIndex].value;
+
+                    return funcSeriousAndSkill;
+                } else if(debuffSkill.options[debuffSkill.selectedIndex].value != "not") {
+
+                    funcSeriousAndSkill["skillType"] = "atkSkill";
+                    funcSeriousAndSkill["skill"] = atkSkill.options[atkSkill.selectedIndex].value;
+
+                    return funcSeriousAndSkill;
+                } else if(ruleSkill.options[ruleSkill.selectedIndex].value != "not") {
+
+                    funcSeriousAndSkill["skillType"] = "atkSkill";
+                    funcSeriousAndSkill["skill"] = atkSkill.options[atkSkill.selectedIndex].value;
+
+                    return funcSeriousAndSkill;
+                } else {
+                    
+                    funcSeriousAndSkill["skillType"] = "inputError";
+                    funcSeriousAndSkill["skill"] = "Warning!!!!";
+
+                    return funcSeriousAndSkill;
+                }
+            }
+
+
+            /**
+             * 
+             * @param {*} functionType
+             */
+            function checkFunctionType(functionType) {
+                
+
+                switch(functionType["skillType"]) {
+
+                }
+
+                if(functionType == "atkFunc") {
+                    attackCalculator();
+                } else if(functionType == "judgeFunc") {
+
+                }
+            }
+
+            function attackCalculator() {
+                //爆擊效果（ atk * LUCK / 100 + ATK - 敵人DEF）
+                console.log("Attacker.get(atk)：" + attacker.get("atk"));
+                console.log("Defenser.get(def)：" + defenser.get("def"));
+
+
+                let realHurt = (attacker.get("atk") * (attacker.get("luck") / 100)) + (attacker.get("atk") - defenser.get("def"));
+                console.log(realHurt);
+                ansContainer.appendChild(document.createTextNode(realHurt));
+            }
+
+            function judgeCalculator() {
+
+            }
+            
+            /**
+             * 
+             * 決定進攻方
+             */             
+            function decisionAttacker() {
+                attacker = new Character();
+                defenser = new Character();
+                let i = 0;
+            
+                for(let temp of playerRadio) {
+                    console.log(temp.value + "：" + temp.checked);
+                    console.log(i++);
+
+                    if(temp.checked) {
+                        attackerValue = new FormData(document.querySelector("#" + temp.value + "Value"));
+                        
+                        for(let stat of attackerValue) {
+                            attacker.set(stat);
+                        }
+
+                    } else {
+                        defenserValue = new FormData(document.querySelector("#" + temp.value + "Value"));
+
+                        for(let stat of defenserValue) {
+                            defenser.set(stat);
+                        }
+                    }
+                }
+            }
+
+
+            /**
+             * 更新所有玩家屬性
+             */
+
+            function updateValueForm() {
+                player1Value = new FormData(document.querySelector("#player1Value"));
+                player2Value = new FormData(document.querySelector("#player2Value"));
+                
+            }
+
+            function cleanContainer() {
+                ansContainer.innerText = "";
+            }
+
+        </script>
+        <script src="static/status.js"></script>
+        <script src="static/function.js"></script>
+        <script src="static/gameMainThread.js"></script>
+    </body>
+</html>
